@@ -6,8 +6,8 @@ import retrofit2.http.GET
 
 internal interface ExperienceAPI {
     companion object {
-        private const val VERSION = "v1.0su"
-        private const val EXPERIENCE_PATH = "/46871c67c80b"
+        private const val VERSION = "v1"
+        private const val EXPERIENCE_PATH = "/experiences.json"
     }
 
     @GET(EXPERIENCE_PATH)
