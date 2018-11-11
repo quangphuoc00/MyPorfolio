@@ -7,6 +7,8 @@ import com.peterdang.myprofile.core.utils.ConfigReader
 import com.peterdang.myprofile.MyApplication
 import com.peterdang.myprofile.R
 import com.peterdang.myprofile.core.utils.ImageUtils
+import com.peterdang.myprofile.core.utils.IntentUtil
+import com.peterdang.myprofile.core.utils.NotifyUtil
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -31,12 +33,20 @@ class AppModule(private val myApp: MyApplication) {
 
     @Provides
     @Singleton
+    fun provideIntentUtil(configReader: ConfigReader): IntentUtil = IntentUtil(configReader, myApp)
+
+    @Provides
+    @Singleton
     fun provideImageUtils(): ImageUtils = ImageUtils(myApp)
 
     @Provides
     @Singleton
+    fun provideNotifyUtil(): NotifyUtil = NotifyUtil(myApp)
+
+    @Provides
+    @Singleton
     fun provideRetrofit(configReader: ConfigReader): Retrofit {
-        val baseUrl = configReader.getConfigValue(myApp.getString(R.string.config_base_url))
+        var baseUrl = configReader.getConfigValue(ConfigReader.BASE_API_URL_KEY)
 
         return Retrofit.Builder()
                 .baseUrl(baseUrl)

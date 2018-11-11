@@ -1,6 +1,6 @@
 package com.peterdang.myprofile.core.di
 
-import com.peterdang.myprofile.features.aboutme.data.ExperienceRepository
+import com.peterdang.myprofile.features.aboutme.data.AboutMeRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -9,5 +9,5 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    fun provideExperienceRepository(dataSource: ExperienceRepository.Network): ExperienceRepository = dataSource
+    fun provideExperienceRepository(dataSource: AboutMeRepository.Network): AboutMeRepository = dataSource
 }

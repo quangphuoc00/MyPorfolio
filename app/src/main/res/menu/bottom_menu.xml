@@ -8,8 +8,7 @@
         android:title="About me"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_schedules"
-        android:enabled="true"
+        android:enabled="false"
         android:title="Contact"
         app:showAsAction="ifRoom" />
     <item

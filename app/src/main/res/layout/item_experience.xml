@@ -14,87 +14,75 @@
             type="com.peterdang.myprofile.features.aboutme.models.ExperienceModel" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="@dimen/item_experience_width"
         android:layout_height="@dimen/item_experience_height"
-        app:cardCornerRadius="@dimen/card_corner"
-        app:cardElevation="1dp">
+        android:background="@android:color/transparent"
+        tools:background="@android:color/holo_red_dark">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            tools:background="@android:color/holo_red_dark">
+            android:layout_height="@dimen/item_inner_experience_height"
+            app:cardCornerRadius="@dimen/card_corner"
+            android:background="@drawable/white_border_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/item_inner_experience_height"
-                android:background="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <TextView
-                    android:id="@+id/role"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="45dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="@{row.role}"
-                    android:textSize="@dimen/txt_normal"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Mobile Developer" />
-
-                <TextView
-                    android:id="@+id/workingPeriod"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="@{row.workingPeriod}"
-                    android:textColor="#C0C0C6"
-                    android:textSize="@dimen/txt_small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/role"
-                    tools:text="3/2011 - 4/2019" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:onClick="@{()-> listener.onItemClick(row)}"
-                    android:padding="0dp"
-                    android:text="@string/see_detail"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/txt_normal"
-                    app:backgroundTint="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:strokeColor="@color/colorPrimary"
-                    app:strokeWidth="1dp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/experience_icon_dimen"
-                android:layout_height="@dimen/experience_icon_dimen"
-                android:src="@drawable/ic_chotot"
+            <TextView
+                android:id="@+id/role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:text="@{row.role}"
+                android:textSize="@dimen/txt_normal"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Mobile Developer" />
+
+            <TextView
+                android:id="@+id/workingPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{row.workingPeriod}"
+                android:layout_marginTop="5dp"
+                android:textColor="#C0C0C6"
+                android:textSize="@dimen/txt_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/role"
+                tools:text="3/2011 - 4/2019" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:onClick="@{()-> listener.onItemClick(row)}"
+                android:padding="0dp"
+                android:text="@string/see_detail"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/txt_normal"
+                app:backgroundTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:strokeColor="@color/colorPrimary"
+                android:elevation="0dp"
+                app:strokeWidth="1dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/experience_icon_dimen"
+            android:layout_height="@dimen/experience_icon_dimen"
+            android:src="@drawable/ic_chotot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

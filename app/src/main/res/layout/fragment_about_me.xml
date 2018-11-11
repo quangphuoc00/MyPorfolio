@@ -27,8 +27,6 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-10dp"
-                android:layout_marginLeft="-9dp"
                 android:layout_marginTop="-10dp"
                 android:background="@drawable/circle_white"
                 android:paddingLeft="15dp"
@@ -52,7 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipgroup"
+                android:id="@+id/chipGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -85,14 +83,15 @@
                 android:text="@string/experiences"
                 android:textColor="@color/grey_disable"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipgroup" />
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/item_experience_height"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="@dimen/margin_normal"
+                android:layout_height="wrap_content"
+                android:clipToPadding="true"
+                android:paddingLeft="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_small"
                 app:itemBinding="@{viewmodel.itemBinding}"
                 app:items="@{viewmodel.experiences}"
                 app:layout_constraintStart_toStartOf="parent"

@@ -14,6 +14,11 @@ import javax.inject.Singleton
  */
 @Singleton
 class ConfigReader @Inject constructor(private var context: Context) {
+    companion object {
+        val BASE_API_URL_KEY = "base_api_url"
+        val MY_EMAIL_KEY = "my_email"
+    }
+
     private val TAG = "Helper"
 
     fun getConfigValue(name: String): String? {

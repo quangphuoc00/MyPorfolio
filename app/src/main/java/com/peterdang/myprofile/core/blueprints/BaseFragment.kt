@@ -21,13 +21,11 @@ import com.peterdang.myprofile.core.extensions.appContext
 import com.peterdang.myprofile.core.extensions.viewContainer
 import javax.inject.Inject
 import android.app.ProgressDialog
-
+import com.peterdang.myprofile.core.utils.NotifyUtil
 
 
 abstract class BaseFragment<VM : BaseViewModel> : Fragment(), LifecycleOwner {
     abstract fun layoutId(): Int
-
-    private lateinit var dialog: ProgressDialog
 
     protected lateinit var viewModel: VM
 
@@ -37,28 +35,12 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(), LifecycleOwner {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var notifyUtil: NotifyUtil
+
+    private lateinit var dialog: ProgressDialog
 
     internal fun firstTimeCreated(savedInstanceState: Bundle?) = savedInstanceState == null
-
-//    internal fun showProgress() = progressStatus(View.VISIBLE)
-
-//    internal fun hideProgress() = progressStatus(View.GONE)
-
-    internal fun notify(@StringRes message: Int) =
-            viewContainer.view?.let { Snackbar.make(it, message, Snackbar.LENGTH_SHORT).show() }
-
-    internal fun notify(message: String) =
-            viewContainer.view?.let { Snackbar.make(it, message, Snackbar.LENGTH_SHORT).show() }
-
-    internal fun notifyWithAction(@StringRes message: Int, @StringRes actionText: Int, action: () -> Any) {
-        val snackBar = viewContainer.view?.let { Snackbar.make(it, message, Snackbar.LENGTH_INDEFINITE) }
-        if (snackBar != null) {
-            snackBar.setAction(actionText) { _ -> action.invoke() }
-            snackBar.setActionTextColor(ContextCompat.getColor(appContext,
-                    R.color.colorPrimary))
-            snackBar.show()
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -83,17 +65,14 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(), LifecycleOwner {
     }
 
     private fun renderFailure(@StringRes message: Int) {
-//        movieList.invisible()
-//        emptyView.visible()
-//        hideProgress()
-        notifyWithAction(message, R.string.action_refresh, ::onRefresh)
+        notifyUtil.notifyWithAction(viewContainer, message, R.string.action_refresh, ::onRefresh)
     }
 
-    protected fun showProgressDialog(){
+    protected fun showProgressDialog() {
         dialog.show()
     }
 
-    protected fun dimissProgressDialog(){
+    protected fun dimissProgressDialog() {
         dialog.dismiss()
     }
 
