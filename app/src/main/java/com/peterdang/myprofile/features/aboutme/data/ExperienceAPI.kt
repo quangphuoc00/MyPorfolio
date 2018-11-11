@@ -10,6 +10,6 @@ internal interface ExperienceAPI {
         private const val EXPERIENCE_PATH = "/46871c67c80b"
     }
 
-    @GET(VERSION + EXPERIENCE_PATH)
+    @GET(EXPERIENCE_PATH)
     fun getData(): Call<List<ExperienceModel>>
 }
