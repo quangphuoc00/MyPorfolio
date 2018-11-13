@@ -22,5 +22,10 @@ class MyNavigator
         val navController = Navigation.findNavController(currentFragment)
         navController.navigate(idFragment)
     }
+
+    fun goSkillDetail(currentFragment: View) {
+        val navController = Navigation.findNavController(currentFragment)
+        navController.navigate(R.id.ActionSkillDetail)
+    }
 }
 

@@ -17,4 +17,10 @@
         android:label="DemoFragment"
         tools:layout="@layout/fragment_demo"/>
 
+    <fragment
+        android:id="@+id/ActionSkillDetail"
+        android:name="com.peterdang.myprofile.features.demo.DemoFragment"
+        android:label="SkillDetailFragment"
+        tools:layout="@layout/fragment_skill_detail"/>
+
 </navigation>

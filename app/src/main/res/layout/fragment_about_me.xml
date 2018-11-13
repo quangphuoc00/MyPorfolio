@@ -37,6 +37,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:text="@string/experiences"
+                android:textColor="@color/grey_disable"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="true"
+                android:paddingLeft="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_small"
+                app:itemBinding="@{viewmodel.itemBinding}"
+                app:items="@{viewmodel.experiences}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -46,8 +72,9 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 android:text="@string/skill"
                 android:textColor="@color/grey_disable"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroup"
@@ -72,30 +99,6 @@
                     android:text="GoLang" />
 
             </com.google.android.material.chip.ChipGroup>
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginLeft="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:text="@string/experiences"
-                android:textColor="@color/grey_disable"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="true"
-                android:paddingLeft="@dimen/padding_small"
-                android:paddingTop="@dimen/padding_small"
-                app:itemBinding="@{viewmodel.itemBinding}"
-                app:items="@{viewmodel.experiences}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

@@ -5,6 +5,7 @@ import com.peterdang.myprofile.MyApplication
 import com.peterdang.myprofile.features.MainActivity
 import com.peterdang.myprofile.features.aboutme.AboutMeFragment
 import com.peterdang.myprofile.features.demo.DemoFragment
+import com.peterdang.myprofile.features.skilldetail.SkillDetailFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -16,6 +17,6 @@ interface ApplicationComponent {
 
     fun inject(fragment: DemoFragment)
     fun inject(fragment: AboutMeFragment)
-//    fun inject(locationFragment: LocationFragment)
+    fun inject(fragment: SkillDetailFragment)
 //    fun inject(blurFragment: BlurFragment)
 }

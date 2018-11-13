@@ -12,4 +12,5 @@
     <string name="see_detail">See detail</string>
 
     <string name="cannot_load_skill_press_to_retry">Cannot load skills, please press to retry</string>
+    <string name="see_more"><![CDATA[See more >]]></string>
 </resources>

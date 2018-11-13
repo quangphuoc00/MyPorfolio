@@ -16,5 +16,5 @@
     <dimen name="experience_icon_dimen">65dp</dimen>
     <dimen name="padding_small">5dp</dimen>
     <dimen name="padding_normal">8dp</dimen>
-    <dimen name="card_corner">5dp</dimen>
+    <dimen name="card_corner">10dp</dimen>
 </resources>

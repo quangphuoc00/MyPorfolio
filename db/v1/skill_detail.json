@@ -1,0 +1,49 @@
+{
+  "Mobile Development": [
+    "MVP/MVVM",
+    "Clean Architecture",
+    "Rx",
+    "Unit and Instrumentation Test"
+  ],
+  "Web Development": [
+    "AngularJS",
+    "HTML",
+    "CSS",
+    "Javascript"
+  ],
+  "Cloud Development": [
+    "AWS",
+    "NodeJS",
+    "Apache Kafka",
+    "Apache Spark",
+    "CircleCI"
+  ],
+  "Databases": [
+    "Relational database",
+    "MongoDB"
+  ],
+  "Network": [
+    "TCP/IP",
+    "Network Layer"
+  ],
+  "Programming Skills": [
+    "Multi-processing",
+    "OOP",
+    "Parallel and Distributed system",
+    "Functional Reactive Programming",
+    "Client/Server programming",
+    "TDD",
+    "Cloud programming"
+  ],
+  "Programming Language": [
+    "C/C++",
+    "C#",
+    "Kotlin",
+    "Java",
+    "HTML",
+    "CSS",
+    "Javascript",
+    "PHP",
+    "UML"
+  ]
+}

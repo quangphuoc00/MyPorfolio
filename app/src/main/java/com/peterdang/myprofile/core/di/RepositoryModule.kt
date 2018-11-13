@@ -9,5 +9,5 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    fun provideExperienceRepository(dataSource: AboutMeRepository.Network): AboutMeRepository = dataSource
+    fun provideAboutMeRepository(dataSource: AboutMeRepository.Network): AboutMeRepository = dataSource
 }
