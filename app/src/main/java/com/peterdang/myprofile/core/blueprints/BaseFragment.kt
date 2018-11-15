@@ -5,22 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import com.peterdang.myprofile.BR
 import com.peterdang.myprofile.MyApplication
 import com.peterdang.myprofile.R
 import com.peterdang.myprofile.core.di.ApplicationComponent
 import com.peterdang.myprofile.core.exception.Failure
-import com.peterdang.myprofile.core.extensions.appContext
 import com.peterdang.myprofile.core.extensions.viewContainer
 import javax.inject.Inject
-import android.app.ProgressDialog
 import com.peterdang.myprofile.core.utils.NotifyUtil
 
 
@@ -38,18 +34,13 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(), LifecycleOwner {
     @Inject
     lateinit var notifyUtil: NotifyUtil
 
-    private lateinit var dialog: ProgressDialog
-
     internal fun firstTimeCreated(savedInstanceState: Bundle?) = savedInstanceState == null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-//        return inflater.inflate(layoutId(), container, false)
         val binding: ViewDataBinding = DataBindingUtil.inflate(
                 inflater, layoutId(), container, false)
         setBindingVariable(binding)
-        dialog = ProgressDialog(context)
-        dialog.setMessage(getString(R.string.loading))
         return binding.root
     }
 
@@ -68,13 +59,19 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(), LifecycleOwner {
         notifyUtil.notifyWithAction(viewContainer, message, R.string.action_refresh, ::onRefresh)
     }
 
-    protected fun showProgressDialog() {
-        dialog.show()
+    protected open fun onRefresh() {
+        viewModel.init()
     }
 
-    protected fun dimissProgressDialog() {
-        dialog.dismiss()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpUI()
+        viewModel.init()
     }
 
-    protected open fun onRefresh() {}
+    /**
+     * Write in onViewCreated method
+     */
+    protected open fun setUpUI(){}
 }

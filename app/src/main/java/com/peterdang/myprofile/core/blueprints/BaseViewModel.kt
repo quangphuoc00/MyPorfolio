@@ -11,8 +11,18 @@ import com.peterdang.myprofile.core.exception.Failure
 abstract class BaseViewModel : ViewModel() {
     var failure: MutableLiveData<Failure> = MutableLiveData()
     var isLoading = ObservableBoolean()
+    var isInitted = false
 
     protected fun handleFailure(failure: Failure) {
         this.failure.value = failure
     }
+
+    public fun init(){
+        if(!isInitted){
+            getFirstData()
+            isInitted = true
+        }
+    }
+
+    abstract fun getFirstData()
 }

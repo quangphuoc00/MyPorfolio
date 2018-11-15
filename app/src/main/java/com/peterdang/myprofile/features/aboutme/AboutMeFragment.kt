@@ -29,7 +29,12 @@ class AboutMeFragment : BaseFragment<AboutMeViewModel>() {
             observe(skills, ::initChips)
             fail(failure, ::handleFailure)
         }
+    }
 
+    override fun setUpUI() {
+        val gridLayoutManager = GridLayoutManager(context, 1, RecyclerView.HORIZONTAL, false)
+        recyclerView.layoutManager = gridLayoutManager
+        recyclerView.addItemDecoration(ItemOffsetDecoration(context!!, R.dimen.padding_normal))
     }
 
     private fun initChips(list: List<String>?) {
@@ -67,26 +72,5 @@ class AboutMeFragment : BaseFragment<AboutMeViewModel>() {
 
         eventClick?.let { chip.setOnClickListener(eventClick) }
         chipGroup.addView(chip)
-    }
-
-    fun setUpRecyclerView() {
-        val gridLayoutManager = GridLayoutManager(context, 1, RecyclerView.HORIZONTAL, false)
-        recyclerView.layoutManager = gridLayoutManager
-        recyclerView.addItemDecoration(ItemOffsetDecoration(context!!, R.dimen.padding_normal))
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setUpRecyclerView()
-        getData()
-    }
-
-    private fun getData() {
-        viewModel.loadData()
-    }
-
-    override fun onRefresh() {
-        getData()
     }
 }

@@ -6,5 +6,7 @@ import javax.inject.Inject
 
 class DemoViewModel
 @Inject constructor(): BaseViewModel() {
-    // TODO: Implement the ViewModel
+    override fun getFirstData() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }

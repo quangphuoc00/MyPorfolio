@@ -29,8 +29,8 @@ class AboutMeViewModel
 
     val itemBinding: ItemBinding<ExperienceModel> = ItemBinding.of<ExperienceModel>(BR.row, R.layout.item_experience)
             .bindExtra(BR.listener, onItemClick)
-    
-    fun loadData() {
+
+    override fun getFirstData() {
         loadExperiences()
         loadSkills()
     }
